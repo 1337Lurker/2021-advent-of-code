@@ -15,7 +15,8 @@ def main():
 
         fuel_spent = 0
         for crab in crab_positions:
-            fuel_spent += abs(i - crab)
+            movement_required = abs(i - crab)
+            fuel_spent += int(movement_required * (movement_required +1) / 2)
         # print(f"fuel spent to align at {i}: {fuel_spent}")
 
         if ideal_position < 0:
@@ -29,7 +30,7 @@ def main():
             print(f"ideal alignment: {ideal_position}")
             print(f"ideal fuel spent: {ideal_position_fuel_spent}")
 
-    return ideal_position
+    return ideal_position_fuel_spent
 
 
 if __name__ == "__main__":
